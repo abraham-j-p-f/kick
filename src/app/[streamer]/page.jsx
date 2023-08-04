@@ -4,12 +4,6 @@ import Center from "./Center";
 import { streamers } from "../_components/MenuChannels";
 import User from "../_components/_lib/user";
 
-export function generateMetadata({ params }) {
-  return {
-    title: params.streamer,
-  };
-}
-
 function NotFound({ streamer }) {
   return (
     <div className="flex flex-col flex-1 h-full pb-5">
