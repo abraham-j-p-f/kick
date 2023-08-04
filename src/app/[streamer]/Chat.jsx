@@ -30,8 +30,8 @@ function Message({ name, message, togle, image, medals }) {
             togle ? "flex-row space-x-1" : "flex-col space-y-1"
           }`}
         >
-          {medals.map((e) => (
-            <Image src={e} />
+          {medals.map((e, i) => (
+            <Image src={e} key={i} />
           ))}
         </div>
         {togle && (

@@ -21,7 +21,7 @@ function NotFound({ streamer }) {
   );
 }
 
-export default function ({ params }) {
+export default function Streamer({ params }) {
   const streamerData = streamers.find((s) => s.streamer == params.streamer);
   if (streamerData) {
     return (
