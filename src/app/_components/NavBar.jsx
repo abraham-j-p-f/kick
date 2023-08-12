@@ -9,13 +9,13 @@ import Bars from "./_lib/bars";
 import Github from "./_lib/github.svg";
 import { useState } from "react";
 
-export default function NavBar({ togle }) {
+export default function NavBar() {
   return (
     <header className="w-full bg-kick-gray-75 px-4 py-2 rounded-[10px]">
       <nav className="w-full flex justify-between items-center gap-4">
         <div className="flex space-x-16 items-center">
           <div className="flex gap-3 ">
-            <button className="block md:hidden" onClick={() => togle()}>
+            <button className="block md:hidden">
               <Bars className="fill-white" />
             </button>
             <Link href={"/"}>

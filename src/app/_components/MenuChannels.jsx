@@ -154,7 +154,7 @@ function Channels({ togle }) {
   );
 }
 
-export default function MenuChannels({ menu }) {
+export default function MenuChannels() {
   const { streamersState, setStreamersState } = useContext(StreamersContext);
 
   return (

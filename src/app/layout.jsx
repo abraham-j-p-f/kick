@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -6,7 +6,7 @@ import NavBar from "./_components/NavBar";
 import MenuChannels from "./_components/MenuChannels";
 import Chat from "./_contexts/Chat";
 import Streamers from "./_contexts/Streamers";
-import { useState } from "react";
+// import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,19 +16,19 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const [mobile, setMobile] = useState(false);
-  const toggleMenuButton = () => {
-    setMobile(!mobile);
-  };
+  // const [mobile, setMobile] = useState(false);
+  // const toggleMenuButton = () => {
+  //   setMobile(!mobile);
+  // };
   return (
     <html lang="en">
       <body className={inter.className}>
         <Chat>
           <Streamers>
             <main className="w-full h-screen px-3 pt-3 bg-kick-gray-100 flex flex-col space-y-3 selection:text-kick-gray-100 selection:bg-kick-green">
-              <NavBar togle={toggleMenuButton}></NavBar>
+              <NavBar></NavBar>
               <div className="w-full h-2/4 flex flex-1 gap-3">
-                <MenuChannels mobile={mobile} />
+                <MenuChannels />
                 <section className="w-full flex-1 flex gap-3">
                   {children}
                 </section>
