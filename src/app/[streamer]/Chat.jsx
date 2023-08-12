@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import Menu from "./_lib/menu.svg";
 import plane from "./_lib/plane.svg";
@@ -9,6 +9,8 @@ import Verified from "./_lib/verifierd.svg";
 import Mod from "./_lib/mod.svg";
 import Diamond from "./_lib/diamond.svg";
 import Profile from "./_lib/profile.png";
+
+import { ChatContext } from "../_contexts/Chat";
 
 function Message({ name, message, togle, image, medals }) {
   return (
@@ -56,32 +58,34 @@ function Message({ name, message, togle, image, medals }) {
 }
 
 export default function Chat() {
-  const [togle, setTogle] = useState(true);
+  const { chatState, setChatState } = useContext(ChatContext);
   return (
     <div
-      className={`h-full pb-5 transition-all duration-150 2xl:block hidden ${
-        togle ? "w-[324px]" : "w-14"
+      className={`2xl:h-full h-auto pb-5 transition-all duration-150 flex flex-col grow shrink 2xl:grow-0 2xl:shrink-0 ${
+        chatState ? "w-full 2xl:w-[324px]" : "w-full 2xl:w-14"
       }`}
     >
       <div className="rounded-[10px] w-full h-full flex flex-col space-y-3">
         <div
-          className={`p-4 bg-kick-gray-75 flex rounded-[10px] transition-all h-14 ${
-            togle ? "justify-between" : "justify-center"
+          className={`p-4 bg-kick-gray-75 2xl:flex rounded-[10px] transition-all h-14 hidden ${
+            chatState ? "justify-between" : "justify-center"
           }`}
         >
           <button>
             <Image
               src={Menu}
               height={16}
-              onClick={() => setTogle(!togle)}
-              className={`transition-all ${togle ? "rotate-180" : "rotate-0"}`}
+              onClick={() => setChatState(!chatState)}
+              className={`transition-all ${
+                chatState ? "rotate-180" : "rotate-0"
+              }`}
             />
           </button>
-          {togle && (
-            <div className={`transition-all ${togle ? "" : ""}`}>
+          {chatState && (
+            <div className={`transition-all ${chatState ? "" : ""}`}>
               <span
                 className={`uppercase transition-all font-bold text-base ${
-                  togle ? "" : ""
+                  chatState ? "" : ""
                 }`}
               >
                 Chat
@@ -95,14 +99,14 @@ export default function Chat() {
             <Message
               name={"OngSiblU"}
               message={"asdasfasdasfasd asdasd asd asdjsadhflslkj asldjkfhlas"}
-              togle={togle}
+              togle={chatState}
               image={Profile}
               medals={[Verified, Mod, Diamond]}
             />
             <Message
               name={"OngSiblU"}
               message={"asdasfasdasfasd asdasd asd asdjsadhflslkj asldjkfhlas"}
-              togle={togle}
+              togle={chatState}
               image={Profile}
               medals={[Verified]}
             />
@@ -110,7 +114,7 @@ export default function Chat() {
         </div>
         <div
           className={`p-4 bg-kick-gray-75 rounded-[10px] space-x-3 items-center transition-all ${
-            togle ? "flex" : "hidden"
+            chatState ? "flex" : "hidden"
           }`}
         >
           <div className="w-full">

@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Menu from "./_lib/menu.svg";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import Streamers, { StreamersContext } from "../_contexts/Streamers";
 
 export const streamers = [
   {
@@ -21,7 +23,7 @@ export const streamers = [
     time: "1:02:32",
     viewers: "47.402",
     image:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/37454f0e-581b-42ba-b95b-416f3113fd37-profile_image-150x150.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/a49448cc-2830-4fc3-adf1-3f9be4d3152a-profile_image-150x150.png",
   },
   {
     streamer: "Alexelcapo",
@@ -152,16 +154,16 @@ function Channels({ togle }) {
   );
 }
 
-export default function MenuChannels() {
-  const [togle, setTogle] = useState(true);
+export default function MenuChannels({ menu }) {
+  const { streamersState, setStreamersState } = useContext(StreamersContext);
 
   return (
-    <menu className="h-full max-h-full hidden md:flex flex-col transition-all">
+    <menu className="h-full max-h-full hidden md:flex md:w-auto w-full flex-col transition-all">
       <div className="mb-3 flex justify-between h-7 over">
         <div className="flex flex-1 relative">
           <h1
             className={`text-xl font-bold transition-all absolute top-0 left-0 ${
-              togle ? "" : "-translate-x-16 opacity-0"
+              streamersState ? "" : "-translate-x-16 opacity-0"
             }`}
           >
             Canales que sigo
@@ -171,12 +173,12 @@ export default function MenuChannels() {
           <Image
             src={Menu}
             height={16}
-            onClick={() => setTogle(!togle)}
-            className={`transition-all ${togle ? "" : "rotate-180"}`}
+            onClick={() => setStreamersState(!streamersState)}
+            className={`transition-all ${streamersState ? "" : "rotate-180"}`}
           />
         </button>
       </div>
-      <Channels togle={togle} />
+      <Channels togle={streamersState} />
     </menu>
   );
 }

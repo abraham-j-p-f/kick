@@ -8,16 +8,16 @@ import Share from "./_lib/share.svg";
 
 export default function Center({ streamer }) {
   return (
-    <div className="flex flex-col flex-1 h-full overflow-y-auto no-scroll rounded-t-[10px] pb-5">
+    <div className="flex flex-col grow-0 shrink-0 2xl:grow 2xl:shrink 2xl:h-full overflow-y-auto no-scroll rounded-t-[10px] pb-0 2xl:pb-5">
       <div className="space-y-4">
         <div className="w-full aspect-video max-h-[700px] rounded-[10px] bg-kick-gray-25"></div>
         <div className="w-full flex space-x-3">
-          <div className="relative w-20 h-20 flex shrink-0">
+          <div className="relative sm:w-20 sm:h-20 w-16 h-16 flex shrink-0">
             <a href="#">
               <div className="rounded-[20px] w-full h-full bg-kick-gray-25 border-kick-green border-2 overflow-hidden">
                 <img src={streamer.image} className="w-full" alt="" />
               </div>
-              <span className="absolute w-16 text-center -bottom-1/4 -translate-y-1/4 left-2/4 -translate-x-2/4 bg-kick-green p-[5px] text-xs text-kick-gray-100 font-bold rounded-[5px]">
+              <span className="absolute w-16 text-center -bottom-1/4 sm:-bottom-1/4 sm:-translate-y-1/4 left-2/4 -translate-x-2/4 bg-kick-green p-[5px] text-xs text-kick-gray-100 font-bold rounded-[5px]">
                 EN VIVO
               </span>
             </a>
@@ -98,8 +98,8 @@ export default function Center({ streamer }) {
             </div>
           </div>
         </div>
-        <div className="w-full aspect-video max-h-[700px] rounded-[10px] bg-kick-gray-25"></div>
-        <div className="w-full aspect-video max-h-[700px] rounded-[10px] bg-kick-gray-25"></div>
+        <div className="w-full aspect-video max-h-[700px] rounded-[10px] bg-kick-gray-25 hidden 2xl:block"></div>
+        <div className="w-full aspect-video max-h-[700px] rounded-[10px] bg-kick-gray-25 hidden 2xl:block"></div>
       </div>
     </div>
   );

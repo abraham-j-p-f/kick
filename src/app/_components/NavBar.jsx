@@ -1,23 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import Logo from "./_lib/White.svg";
 import Profile from "./_lib/profile.png";
 import Link from "next/link";
 import Search from "./_lib/search.jsx";
+import Bars from "./_lib/bars";
+import Github from "./_lib/github.svg";
+import { useState } from "react";
 
-export default function NavBar() {
+export default function NavBar({ togle }) {
   return (
     <header className="w-full bg-kick-gray-75 px-4 py-2 rounded-[10px]">
       <nav className="w-full flex justify-between items-center gap-4">
         <div className="flex space-x-16 items-center">
-          <Link href={"/"}>
-            <Image src={Logo} height={20} />
-          </Link>
-          {/* <a className="font-bold text-xl" href="">
-            Explorar
-          </a>
-          <a className="font-bold text-xl" href="">
-            Siguiendo
-          </a> */}
+          <div className="flex gap-3 ">
+            <button className="block md:hidden" onClick={() => togle()}>
+              <Bars className="fill-white" />
+            </button>
+            <Link href={"/"}>
+              <Image src={Logo} height={20} />
+            </Link>
+          </div>
         </div>
 
         <div className="sm:flex hidden flex-1 max-w-[600px] h-11">
@@ -34,11 +38,13 @@ export default function NavBar() {
           </button>
         </div>
         <div className="flex items-center gap-4">
-          <div className="sm:hidden flex bg-kick-gray-25 w-10 aspect-square rounded justify-center items-center">
+          <div className="sm:hidden flex bg-kick-gray-50 w-10 aspect-square rounded justify-center items-center">
             <Search color={"#fff"} />
           </div>
-          <div className="w-10 rounded-[5px] overflow-hidden">
-            <Image src={Profile} />
+          <div className="w-8 rounded-[5px] overflow-hidden">
+            <Link href={"https://github.com/abraham-j-p-f"} target="_blank">
+              <Image src={Github} />
+            </Link>
           </div>
         </div>
       </nav>

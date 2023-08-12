@@ -24,6 +24,10 @@ module.exports = {
       colors: {
         kick: {
           green: "#00E701",
+          greenTones: {
+            80: "#234118",
+            100: "#14250E",
+          },
           gray: {
             15: "#2E3238",
             20: "#AFAFAF",

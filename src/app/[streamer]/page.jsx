@@ -25,7 +25,7 @@ export default function Streamer({ params }) {
   const streamerData = streamers.find((s) => s.streamer == params.streamer);
   if (streamerData) {
     return (
-      <div className="flex flex-1 h-full overflow-y-auto no-scroll rounded-t-[10px] gap-3">
+      <div className="flex flex-col 2xl:flex-row flex-1 h-full overflow-y-auto no-scroll rounded-t-[10px] gap-0 2xl:gap-3">
         <Center streamer={streamerData} />
         <Chat />
       </div>
